@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Message Sent — WalkLine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blueprint: #142E4A;
+    --blueprint-deep: #0D2036;
+    --linework: #EAF4FF;
+    --linework-dim: rgba(234,244,255,0.55);
+    --brass: #C08A4E;
+    --brass-bright: #D9A25F;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Newsreader', serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{
+    background: var(--blueprint);
+    color: var(--linework);
+    font-family: var(--body);
+    min-height: 100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 32px;
+    text-align:center;
+  }
+  .card{ max-width: 480px; }
+  .eyebrow{
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brass-bright);
+    margin-bottom: 16px;
+    display:block;
+  }
+  h1{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+  p{
+    color: var(--linework-dim);
+    font-size: 1.05rem;
+    margin-bottom: 32px;
+  }
+  a.btn{
+    display:inline-block;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration:none;
+    color: var(--blueprint-deep);
+    background: var(--brass);
+    padding: 13px 26px;
+    border-radius: 3px;
+    transition: background 0.18s ease;
+  }
+  a.btn:hover{ background: var(--brass-bright); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="eyebrow">Message received</span>
+    <h1>Thanks — I'll get back to you shortly.</h1>
+    <p>Your message has landed in my inbox. I typically reply within a day or two, sooner if it's time-sensitive.</p>
+    <a class="btn" href="/">Back to WalkLine</a>
+  </div>
+</body>
+</html>
