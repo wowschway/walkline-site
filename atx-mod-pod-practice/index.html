@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- EDIT: swap the address into the title -->
+<title>ATX Mod Pod — Virtual Walkthrough | WalkLine</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blueprint: #142E4A;
+    --blueprint-deep: #0D2036;
+    --linework: #EAF4FF;
+    --linework-dim: rgba(234,244,255,0.55);
+    --brass: #C08A4E;
+    --brass-bright: #D9A25F;
+    --paper: #F5F1E8;
+    --ink: #1F2937;
+    --ink-dim: #5B6472;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Newsreader', serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+  body{
+    background: var(--blueprint); color: var(--linework);
+    font-family: var(--body); line-height: 1.5; -webkit-font-smoothing: antialiased;
+  }
+  img, video{ max-width:100%; display:block; }
+  a{ color: inherit; }
+  :focus-visible{ outline: 2px solid var(--brass-bright); outline-offset: 3px; }
+  .wrap{ max-width: 1080px; margin: 0 auto; padding-inline: 28px; }
+  .eyebrow{
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--brass-bright);
+  }
+
+  .credit-bar{ padding-block: 14px; border-bottom: 1px solid rgba(234,244,255,0.1); }
+  .credit-bar .wrap{ display:flex; justify-content:flex-end; }
+  .credit-bar a{
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em;
+    text-transform: uppercase; color: var(--linework-dim); text-decoration:none;
+    display:flex; align-items:center; gap: 6px;
+  }
+  .credit-bar a:hover{ color: var(--linework); }
+  .credit-bar .dot{ width:5px; height:5px; border-radius:50%; background: var(--brass-bright); }
+
+  .hero{ padding-block: 64px 56px; border-bottom: 1px solid rgba(234,244,255,0.12); }
+  .hero h1{
+    font-family: var(--display); font-weight: 600; font-size: clamp(2rem, 4.4vw, 3rem);
+    line-height: 1.1; letter-spacing: -0.01em; margin-block: 16px 14px; max-width: 20ch;
+  }
+  .hero-stats{
+    display:flex; gap: 22px; flex-wrap:wrap; font-family: var(--mono);
+    font-size: 0.92rem; color: var(--linework-dim); margin-bottom: 30px;
+  }
+  .hero-stats strong{ color: var(--linework); font-weight: 500; }
+
+  .btn{
+    display:inline-flex; align-items:center; gap: 10px; font-family: var(--mono);
+    font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase;
+    text-decoration:none; padding: 14px 22px; border-radius: 3px;
+    transition: transform 0.18s ease, background 0.18s ease; border:none; cursor:pointer;
+  }
+  .btn-primary{ background: var(--brass); color: var(--blueprint-deep); }
+  .btn-primary:hover{ background: var(--brass-bright); transform: translateY(-1px); }
+  .btn-ghost{ border: 1px solid rgba(234,244,255,0.35); color: var(--linework); background:none; }
+  .btn-ghost:hover{ border-color: var(--linework); }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+
+  section{ padding-block: 72px; }
+  .section-head{
+    display:flex; align-items: baseline; justify-content: space-between; gap: 24px;
+    margin-bottom: 34px; border-bottom: 1px solid rgba(234,244,255,0.14); padding-bottom: 16px;
+  }
+  .section-head h2{
+    font-family: var(--display); font-weight: 600;
+    font-size: clamp(1.4rem, 2.2vw, 1.8rem); letter-spacing: -0.01em;
+  }
+
+  .player-frame{
+    position:relative; border: 1px solid rgba(234,244,255,0.25);
+    border-radius: 4px; padding: 14px; background: rgba(234,244,255,0.03);
+  }
+  .player-frame::before, .player-frame::after{
+    content:""; position:absolute; width: 18px; height: 18px;
+    border-color: var(--brass-bright); border-style: solid; border-width: 0;
+  }
+  .player-frame::before{ top:-1px; left:-1px; border-top-width:2px; border-left-width:2px; }
+  .player-frame::after{ bottom:-1px; right:-1px; border-bottom-width:2px; border-right-width:2px; }
+  #main-video{ width:100%; border-radius: 2px; background: var(--blueprint-deep); aspect-ratio: 16/9; }
+
+  .floorplan-box{
+    border: 1px dashed rgba(234,244,255,0.3); border-radius: 4px; aspect-ratio: 16/9;
+    display:flex; align-items:center; justify-content:center;
+    background: repeating-linear-gradient(135deg, rgba(234,244,255,0.05) 0 2px, transparent 2px 14px);
+  }
+
+  .about-grid{ display:grid; grid-template-columns: 1.3fr 1fr; gap: 48px; }
+  @media (max-width: 780px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-grid p{ color: var(--linework-dim); margin-bottom: 16px; }
+  .feature-list{ list-style:none; display:grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; }
+  .feature-list li{ font-size: 0.94rem; padding-left: 18px; position:relative; color: var(--linework-dim); }
+  .feature-list li::before{ content:"—"; position:absolute; left:0; color: var(--brass-bright); }
+
+  .contact{
+    background: var(--paper); color: var(--ink); border-radius: 6px; padding: 40px;
+    display:flex; justify-content:space-between; align-items:center; gap: 32px; flex-wrap:wrap;
+  }
+  .contact .eyebrow{ color: var(--brass); }
+  .contact h2{ font-family: var(--display); font-weight: 600; font-size: 1.5rem; margin-block: 8px 4px; }
+  .contact p{ color: var(--ink-dim); }
+  .agent-actions{ display:flex; gap: 12px; flex-wrap:wrap; }
+  .contact .btn-ghost{ border-color: rgba(31,41,55,0.3); color: var(--ink); }
+  .contact .btn-ghost:hover{ border-color: var(--ink); }
+
+  footer{ border-top: 1px solid rgba(234,244,255,0.12); padding-block: 26px; }
+  .foot-row{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;
+    gap: 10px; font-family: var(--mono); font-size: 0.72rem; color: var(--linework-dim);
+  }
+  .foot-row a{ color: var(--brass-bright); text-decoration:none; }
+</style>
+</head>
+<body>
+
+  <div class="credit-bar">
+    <div class="wrap">
+      <a href="https://walklinetours.com" target="_blank" rel="noopener">
+        <span class="dot"></span> Walkthrough by WalkLine
+      </a>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Virtual Walkthrough</p>
+      <!-- EDIT: replace with the real listing address -->
+      <h1>ATX Mod Pod — Austin, TX</h1>
+      <!-- EDIT: replace with real price/rate + stats -->
+      <div class="hero-stats">
+        <span><strong>$89</strong>/night</span>
+        <span><strong>2</strong> lofts</span>
+        <span><strong>1</strong> ba</span>
+        <span>Solar-powered</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#tour">Watch the walkthrough</a>
+        <a class="btn btn-ghost" href="#contact">Schedule a showing</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="tour">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Full walkthrough</h2>
+        <span class="eyebrow">One continuous tour</span>
+      </div>
+      <div class="player-frame">
+        <!-- EDIT: this is the single stitched video for the whole home -->
+        <video id="main-video" controls poster="" src="tour/walkthrough.mp4"></video>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDIT: delete this whole section if the client didn't purchase the floor plan add-on -->
+  <section id="floorplan">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Floor plan</h2>
+        <span class="eyebrow">Add-on</span>
+      </div>
+      <div class="floorplan-box">
+        <span class="eyebrow">Floor plan image goes here</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>About this home</h2>
+        <span class="eyebrow">Listing details</span>
+      </div>
+      <div class="about-grid">
+        <div>
+          <!-- EDIT: paste the real listing description here -->
+          <p>A solar-powered tiny house with two sleeping lofts, a full kitchen, and a cozy living nook — replace this with the real listing description.</p>
+        </div>
+        <div>
+          <!-- EDIT: replace with real feature bullets -->
+          <ul class="feature-list">
+            <li>Solar-Powered</li>
+            <li>Keypad Entry</li>
+            <li>Breakfast Bar</li>
+            <li>WFH Workspace</li>
+            <li>Pet Friendly</li>
+            <li>Record Player</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <span class="eyebrow">Listed by</span>
+          <!-- EDIT: replace with the real host/agent name -->
+          <h2>Practice Run — Not a Real Listing</h2>
+          <p>Reach out to schedule an in-person showing.</p>
+        </div>
+        <div class="agent-actions">
+          <a class="btn btn-primary" href="tel:+15125550123">Call (512) 555-0123</a>
+          <a class="btn btn-ghost" href="mailto:luka@walklinetours.com">Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot-row">
+      <span>ATX Mod Pod — Austin, TX (Practice Run)</span>
+      <span>Virtual walkthrough by <a href="https://walklinetours.com" target="_blank" rel="noopener">WalkLine</a></span>
+    </div>
+  </footer>
+
+</body>
+</html>
