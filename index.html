@@ -1,13 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <title>WalkLine — AI Virtual Walkthroughs for Listings</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
 
   /* ============ TOKENS ============
@@ -240,6 +238,17 @@
     padding: 24px;
   }
   .work-card .thumb .eyebrow{ opacity: 0.8; }
+  .work-card .thumb.video-thumb{
+    padding: 0;
+    border-style: solid;
+    overflow: hidden;
+  }
+  .work-card .thumb.video-thumb video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+  }
   .work-card h3{
     font-family: var(--display);
     font-size: 1.4rem;
@@ -423,6 +432,18 @@
     border: 1px solid var(--brass);
   }
 
+  /* ============ SINGLE-HOME SELLER OFFER ============ */
+  .single-rate-wrap{
+    display:flex;
+    justify-content:center;
+    margin-bottom: 8px;
+  }
+  .rate-card.single{
+    max-width: 360px;
+    width: 100%;
+  }
+  .rate-card.single ul{ flex-grow: 0; }
+
   /* ============ CONTACT ============ */
   .contact{
     background: var(--blueprint-deep);
@@ -561,16 +582,16 @@
       <div>
         <!-- Signature element: a floor plan that draws itself in, standing in for "reading a space before visiting it" -->
         <svg class="plan-svg" viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line drawing of a small house floor plan">
-          <rect class="fill-wall" x="20" y="20" width="280" height="200" />
-          <path class="plan-trace" d="M20,20 H300 V220 H20 Z" />
-          <path class="plan-trace" d="M170,20 V120" />
-          <path class="plan-trace" d="M170,120 H300" />
-          <path class="plan-trace" d="M20,150 H120" />
-          <path class="plan-trace" d="M120,150 V220" />
-          <path class="plan-trace" d="M225,20 A28 28 0 0 1 197 48" />
-          <line class="plan-trace" x1="225" y1="20" x2="225" y2="48" />
-          <circle class="plan-trace" cx="60" cy="60" r="1.6" />
-          <line class="plan-trace" x1="20" y1="90" x2="20" y2="120" stroke-width="3" />
+          <rect class="fill-wall" x="20" y="20" width="280" height="200"></rect>
+          <path class="plan-trace" d="M20,20 H300 V220 H20 Z"></path>
+          <path class="plan-trace" d="M170,20 V120"></path>
+          <path class="plan-trace" d="M170,120 H300"></path>
+          <path class="plan-trace" d="M20,150 H120"></path>
+          <path class="plan-trace" d="M120,150 V220"></path>
+          <path class="plan-trace" d="M225,20 A28 28 0 0 1 197 48"></path>
+          <line class="plan-trace" x1="225" y1="20" x2="225" y2="48"></line>
+          <circle class="plan-trace" cx="60" cy="60" r="1.6"></circle>
+          <line class="plan-trace" x1="20" y1="90" x2="20" y2="120" stroke-width="3"></line>
           <text class="plan-label" x="35" y="90">LIVING</text>
           <text class="plan-label" x="205" y="80">BED</text>
           <text class="plan-label" x="205" y="180">BATH</text>
@@ -584,20 +605,20 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Featured walkthrough</h2>
-        <span class="eyebrow">Coming soon</span>
+        <span class="eyebrow">Sample</span>
       </div>
 
       <div class="work-card">
-        <div class="thumb">
-          <span class="eyebrow">First walkthrough<br>in production</span>
+        <div class="thumb video-thumb">
+          <video src="/assets/featured-walkthrough.mp4" poster="/assets/featured-walkthrough-poster.jpg" autoplay muted loop playsinline controls></video>
         </div>
         <div>
           <div class="tag-row">
             <span class="tag">Warm &amp; Cozy</span>
             <span class="tag">Room-by-Room</span>
           </div>
-          <h3>Your listing could be the first case study</h3>
-          <p>I'm putting together the first walkthrough now. Send over a listing and I'll build out a sample room before you commit to anything.</p>
+          <h3>See what a WalkLine walkthrough feels like</h3>
+          <p>This is a sample built to show the style and pacing you can expect. Send over your listing and I'll build the same thing for your property.</p>
           <a class="btn btn-ghost" href="#contact">Start a project →</a>
         </div>
       </div>
@@ -615,7 +636,25 @@
         <p>AI-generated virtual walkthroughs — no scanning hardware, faster turnaround, lower cost than traditional Matterport. Serving Texas real estate agents &amp; property managers.</p>
       </div>
 
-      <h3 class="subhead first">Add-Ons</h3>
+      <h3 class="subhead first">For Home Sellers<small>Selling on your own, or just want your own walkthrough? One-time, no subscription required.</small></h3>
+      <div class="single-rate-wrap">
+        <div class="rate-card featured single">
+          <span class="popular-tag">One-time</span>
+          <span class="eyebrow">Single Home</span>
+          <h3>Home Walkthrough</h3>
+          <p class="price">$249<small>/ one-time</small></p>
+          <ul>
+            <li>1 AI-generated cinematic walkthrough</li>
+            <li>Up to 3,000 sq ft</li>
+            <li>Room-by-room, built from your existing listing photos</li>
+            <li>Delivered as a hosted link, ready in 24–48 hrs</li>
+            <li>No subscription, no contract</li>
+          </ul>
+          <a class="btn btn-primary" href="#contact">Get my walkthrough</a>
+        </div>
+      </div>
+
+      <h3 class="subhead">Add-Ons</h3>
       <div class="addon-grid">
         <table class="schedule">
           <tbody>
@@ -722,30 +761,25 @@
 
       <div class="contact-divider"><span>Or send a message directly</span></div>
 
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form" action="/thank-you.html">
-        <input type="hidden" name="form-name" value="contact" />
+      <form action="/thank-you" class="contact-form" method="POST" name="contact">
+        <input type="hidden" name="form-name" value="contact">
         <p class="hidden-field">
-          <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+          <label>Don't fill this out if you're human: <input name="bot-field"></label>
         </p>
 
         <div class="field">
           <label for="cf-name">Name</label>
-          <input id="cf-name" name="name" type="text" placeholder="Jane Realtor" required />
+          <input id="cf-name" name="name" type="text" placeholder="Jane Realtor" required="">
         </div>
 
         <div class="field">
           <label for="cf-email">Email</label>
-          <input id="cf-email" name="email" type="email" placeholder="jane@agency.com" required />
-        </div>
-
-        <div class="field">
-          <label for="cf-listing">Listing URL (if live)</label>
-          <input id="cf-listing" name="listing_url" type="url" placeholder="https://zillow.com/homedetails/..." />
+          <input id="cf-email" name="email" type="email" placeholder="jane@agency.com" required="">
         </div>
 
         <div class="field">
           <label for="cf-message">Message</label>
-          <textarea id="cf-message" name="message" placeholder="Tell me about the listing you'd like turned into a walkthrough." required></textarea>
+          <textarea id="cf-message" name="message" placeholder="Tell me about the listing you'd like turned into a walkthrough." required=""></textarea>
         </div>
 
         <button type="submit" class="btn btn-ghost">Send message</button>
@@ -758,5 +792,6 @@
     </div>
   </section>
 
-</body>
-</html>
+
+
+</body></html>
